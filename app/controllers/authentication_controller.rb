@@ -2,6 +2,9 @@ class AuthenticationController < ApplicationController
   before_action :authorize_request, except: :login
 
   # POST /auth/login
+  api :POST, '/auth/login'
+  param :email, String, required: true
+  param :password, String, required: true
   def login
     @user = User.find_by_email(params[:email])
     if @user&.authenticate(params[:password])

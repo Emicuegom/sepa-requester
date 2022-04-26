@@ -3,17 +3,27 @@ class UsersController < ApplicationController
   before_action :find_user, except: %i[create index]
 
   # GET /users
+  api :GET, '/users'
+  header :Authorization, 'login token', requested: true
   def index
     @users = User.all
     render json: @users, status: :ok
   end
 
   # GET /users/{username}
+  api :GET, '/users/:username'
+  header :Authorization, 'login token', requested: true
   def show
     render json: @user, status: :ok
   end
 
   # POST /users
+  api :POST, '/users'
+  param :name, String
+  param :username, String, required: true
+  param :email, String, required: true
+  param :password, String, required: true
+  param :password_confirmation, String, required: true
   def create
     @user = User.new(user_params)
     if @user.save

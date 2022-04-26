@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an implementation of a simple payment requests processor, in the first step.
 
-Things you may want to cover:
+As extras, it includes the use of multiple currencies and also the validation of the IBAN.
 
-* Ruby version
+How to deploy it :
 
-* System dependencies
+bundle
+rails db:create
+rails db:migrate
+rails s
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. create a user
+2. check the doc on http://localhost:3000/apipie
+3. play with it :)
